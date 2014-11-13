@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Hackscribble MCP9804 Library", "http://localhost:56539", "{A7E31440-9AFF-47FA-A37D-86C07F0AF75B}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_56539"
+		Debug.AspNetCompiler.PhysicalPath = "..\Hackscribble MCP9804 Library\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56539\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_56539"
+		Release.AspNetCompiler.PhysicalPath = "..\Hackscribble MCP9804 Library\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56539\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\Hackscribble MCP9804 Library\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7E31440-9AFF-47FA-A37D-86C07F0AF75B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7E31440-9AFF-47FA-A37D-86C07F0AF75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

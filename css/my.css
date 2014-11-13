@@ -1,0 +1,84 @@
+﻿.my-top-bar {
+    background-color: #25242C;
+    padding-top: 5px; 
+    padding-left: 5px;
+}
+
+#top-scroll-button {
+    display: none; /* until changed by JS when page scrolls down */
+}
+
+.my-banner {
+    background-color: #25242C;
+	color: #DDDDDD;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+}
+
+.my-footer {
+    background-color: #25242C;
+    font-family: Roboto, sans-serif;
+}
+
+.my-column {
+	padding-top: 10px;
+}
+
+.my-image {
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}
+
+.my-headline {
+	color: #F8F8F8;
+    text-align: center;
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
+}
+
+.my-small-print {
+       font-size: 70%;
+}
+
+p {
+    font-weight: 300;
+}
+
+.my-body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+    color: #DDDDDD;
+    background-color: #32313B;
+}
+
+.hljs {
+    background-color: #D9D9D9;
+}
+.hljs, .hljs-constant, .hljs-string, .hljs-keyword, .hljs-number {
+    font-family: 'Droid Sans Mono' ;
+}
+
+.my-code-container {
+    /* Enables horizontal scrolling on small devices */
+    overflow-x: auto;
+    /* Prevents vertical scroll bar on large devices */
+    line-height: 1.25;
+}
+
+hr {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-color: #6F6F6F;
+}
+
+hr.my-hr {
+    border: 2px solid #6F6F6F;
+}
+
+.panel {
+    background-color: #25242C;
+    border-width: 0;
+}
+
