@@ -28,7 +28,7 @@ title: Hackscribble | Hackscribble MCP9804 Library
                 <p>
                     @@@.  
                 </p> 
-                <img class="my-image show-for-small" src="img/pinout.jpg" />
+                <img class="my-image show-for-small" src="img/pinout.png" />
                 <p>  
                     The library lets you: 
                 </p>
@@ -38,7 +38,7 @@ title: Hackscribble | Hackscribble MCP9804 Library
                     <li>respond to a hardware alert signal from the MCP9804 when a threshold is exceeded</li>    
                 </ul>
                 <p>
-                    The library hides all the complicated details of communications, register addressing and value conversions. Just connect the sensor, 
+                    We have hidden all the complicated details of communications, register addressing and value conversions. Just connect the sensor, 
                     specify its I2C address and you can start reading temperatures. 
                 </p>
 		        <pre><code class="ruby"><div class="my-code-container">
@@ -49,7 +49,7 @@ sensor.begin();
 Serial.print("Ambient temperature(Ta) = ");
 Serial.println(sensor.getTAFloat(), 2);
 			    </div></code></pre>
-                <p>
+                <p><p>
                     To test the MCP9804, we designed and built a small evaluation board.
                 </p>
 
