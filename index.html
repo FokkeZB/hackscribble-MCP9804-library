@@ -29,11 +29,12 @@ title: Hackscribble | Hackscribble MCP9804 Library
                     We like the MCP9804 temperature sensor: small, lots of features, I2C connected and readable data sheet. The accuracy is 
 					claimed to be within +/- 1 degree Celsius.
 				</p>
+				<img class="my-image" src="img/accuracy.png" />
 				<p>	
 					However, when we searched for sample code or an Arduino library for the MCP9804, we could not find anything which made 
 					use of all its features. So, we wrote one.
                 </p> 
-                <img class="my-image" src="img/pinout.png" />
+ 
                 <p>  
                     The Hackscribble_MCP9804 library lets you: 
                 </p>
@@ -55,7 +56,8 @@ Serial.print("Ambient temperature(Ta) = ");
 Serial.println(sensor.getTAFloat(), 2);
 			    </div></code></pre>
                 <p><p>
-                    To test the MCP9804, we designed and made a small evaluation board. We'll publish the PCB design shortly.
+                    To test the MCP9804, we designed and made a small evaluation board. You can download the designs from the 
+					<a href="http://www.hackscribble.com/hackscribble-MCP9804-hardware">hardware project page</b></a>.
                 </p>
                 <img class="my-image" src="img/pcb-layout.png" />
 				<br>
@@ -80,7 +82,7 @@ Serial.println(sensor.getTAFloat(), 2);
                     <dl>
                         <dt>Want to build it?</dt>
                         <dd>
-                            Evaluation board designs coming soon.
+                            <a href="http://www.hackscribble.com/hackscribble-MCP9804-hardware">Get the schematic and PCB layout for the MCP9804 evaluation board.</a>
                         </dd>
                     </dl>
                 </div>
