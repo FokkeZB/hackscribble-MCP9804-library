@@ -2,19 +2,19 @@
 
 	Hackscribble_MCP9804 Library
 	============================
-	
+
 	Comprehensive Arduino library for Microchip Technology's
 	MCP9804 I2C digital temperature sensor.
-	
-	
+
+
 	Created on 13 November 2014
 	By Ray Benitez
 	Last modified on ---
 	By ---
 	Change history in "README.md"
-		
+
 	This software is licensed by Ray Benitez under the MIT License.
-	
+
 	git@hackscribble.com | http://www.hackscribble.com | http://www.twitter.com/hackscribble
 
 */
@@ -112,13 +112,13 @@ void Hackscribble_MCP9804::_setThresholdInteger(MCP9804_Register reg, int8_t val
   // For Tlower, alert is triggered when Ta:
   //  1. falls below (threshold - hysteresis)
   //  2. rises back above threshold
-  
+
   uint16_t temp = (uint8_t)val << 4;
   temp |= (val < 0 ? 0x1000 : 0x0000);
   _writeRegister16(reg, temp);
 }
 
-	
+
 //
 // Public methods
 //
@@ -126,10 +126,10 @@ void Hackscribble_MCP9804::_setThresholdInteger(MCP9804_Register reg, int8_t val
 void Hackscribble_MCP9804::begin()
 {
 	Wire.begin();
-	
+
 	// Enable alert for upper and lower thresholds, active low, interrupt mode
 	// uint16_t current = _readRegister16(REG_CONFIG) & 0xFFF0;
-	// current |= 0x0009; 
+	// current |= 0x0009;
 	// _writeRegister16(REG_CONFIG, current);
 }
 
@@ -242,6 +242,21 @@ void Hackscribble_MCP9804::configureAlert()
 }
 
 
+void Hackscribble_MCP9804::configureAlert(boolean action, uint16_t settings = ALERT_ALL | ALERT_LOW | ALERT_INTERRUPT);
+{
+	uint16_t current = _readRegister16(REG_CONFIG) & 0xFFF0;
+  if (action == ENABLE)
+  {
+    current |= 0x0000;
+  }
+  else
+  {
+    current |= settings;
+  }
+	_writeRegister16(REG_CONFIG, current);
+}
+
+
 boolean Hackscribble_MCP9804::alertTCRIT()
 {
   return (_readRegister16(REG_TA) & 0x8000) > 0;
@@ -284,4 +299,3 @@ uint8_t Hackscribble_MCP9804::getDeviceRevision()
 {
 	return (_readRegister16(REG_DEVICE_ID) % 256);
 }
-

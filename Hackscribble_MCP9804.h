@@ -2,19 +2,19 @@
 
 	Hackscribble_MCP9804 Library
 	============================
-	
+
 	Comprehensive Arduino library for Microchip Technology's
 	MCP9804 I2C digital temperature sensor.
-	
-	
+
+
 	Created on 13 November 2014
 	By Ray Benitez
 	Last modified on ---
 	By ---
 	Change history in "README.md"
-		
+
 	This software is licensed by Ray Benitez under the MIT License.
-	
+
 	git@hackscribble.com | http://www.hackscribble.com | http://www.twitter.com/hackscribble
 
 */
@@ -58,6 +58,14 @@ enum MCP9804_Register
 	numberOfRegisters
 };
 
+#define DISABLE          false
+#define ENABLE           true
+#define ALERT_ALL        &00
+#define ALERT_TCRIT      &04
+#define ALERT_LOW        &00
+#define ALERT_HIGH       &02
+#define ALERT_COMPARATOR &00
+#define ALERT_INTERRUPT  &01
 
 
 class Hackscribble_MCP9804
@@ -71,7 +79,7 @@ private:
 	int8_t _getThresholdInteger(MCP9804_Register reg);
 	void _setThresholdInteger(MCP9804_Register reg, int8_t val);
 	uint8_t _address;
-	
+
 public:
 	Hackscribble_MCP9804(uint8_t address);
 	void begin();
@@ -88,6 +96,7 @@ public:
 	int8_t getTCRIT();
 	void setTCRIT(int8_t val);
 	void configureAlert();
+	void configureAlert(boolean action, uint16_t settings = ALERT_ALL | ALERT_LOW | ALERT_INTERRUPT);
 	boolean alertTCRIT();
 	boolean alertTUPPER();
 	boolean alertTLOWER();
