@@ -237,23 +237,24 @@ void Hackscribble_MCP9804::setTCRIT(int8_t val)
 void Hackscribble_MCP9804::configureAlert()
 {
 	uint16_t current = _readRegister16(REG_CONFIG) & 0xFFF0;
-	current |= 0x0009; // Alert enabled for upper and lower, active low, interrupt mode
+	// Alert enabled for upper and lower, active low, interrupt mode
+        current |= (ALERT_ENABLE | ALERT_ALL | ALERT_LOW | ALERT_INTERRUPT); 
 	_writeRegister16(REG_CONFIG, current);
 }
 
 
-void Hackscribble_MCP9804::configureAlert(boolean action, uint16_t settings = ALERT_ALL | ALERT_LOW | ALERT_INTERRUPT);
+void Hackscribble_MCP9804::configureAlert(boolean action, uint16_t settings = ALERT_ALL | ALERT_LOW | ALERT_INTERRUPT)
 {
-	uint16_t current = _readRegister16(REG_CONFIG) & 0xFFF0;
+  uint16_t current = _readRegister16(REG_CONFIG) & 0xFFF0;
   if (action == ENABLE)
   {
-    current |= 0x0000;
+    current |= (ALERT_ENABLE | settings);
   }
   else
   {
-    current |= settings;
+    current |= ALERT_DISABLE;
   }
-	_writeRegister16(REG_CONFIG, current);
+  _writeRegister16(REG_CONFIG, current);
 }
 
 

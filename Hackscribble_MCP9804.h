@@ -60,12 +60,14 @@ enum MCP9804_Register
 
 #define DISABLE          false
 #define ENABLE           true
-#define ALERT_ALL        &00
-#define ALERT_TCRIT      &04
-#define ALERT_LOW        &00
-#define ALERT_HIGH       &02
-#define ALERT_COMPARATOR &00
-#define ALERT_INTERRUPT  &01
+#define ALERT_DISABLE    0x00
+#define ALERT_ENABLE     0x08
+#define ALERT_ALL        0x00
+#define ALERT_TCRIT      0x04
+#define ALERT_LOW        0x00
+#define ALERT_HIGH       0x02
+#define ALERT_COMPARATOR 0x00
+#define ALERT_INTERRUPT  0x01
 
 
 class Hackscribble_MCP9804
