@@ -5,11 +5,11 @@ Hackscribble_MCP9804 Library User Guide
 
 <br>
 
-Created on 13 November 2014 by Ray Benitez  
-Last modified on --- by ---  
-Change history in **README.md**  
+Created on 13 November 2014 by Ray Benitez
+Last modified on ?? October 2016 by Ray Benitez
+Change history in **README.md**
 
-This software is licensed by Ray Benitez under the MIT License.  
+This software is licensed by Ray Benitez under the MIT License.
   
 git@hackscribble.com | http://www.hackscribble.com | http://www.twitter.com/hackscribble
 
@@ -43,7 +43,7 @@ The library provides functions to:
 
 1.  Download and install the Hackscribble_MCP9804 library.
 
-2.  Connect an MCP9804 to your Arduino.  
+2.  Connect an MCP9804 to your Arduino.
 
 3.  Try out the example sketches.
 
@@ -167,7 +167,7 @@ For example ...
 // Assume actual Ta is 20.92 degrees
 firstSensor.setResolution(R_DEGREES_0_5000);  // 0.5 degree resolution
 Serial.println(firstSensor.getTAFloat(), 4);  // Prints 21.0000
-firstSensor.setResolution(R_DEGREES_0_0625);  // 0.0625 degree resolution  
+firstSensor.setResolution(R_DEGREES_0_0625);  // 0.0625 degree resolution
 Serial.println(firstSensor.getTAFloat(), 4);  // Prints 20.9375
 ```
 
@@ -222,11 +222,32 @@ boolean alertTUPPER();
 boolean alertTLOWER();
 ```
 
-You can also set the MCP9804 to activate its Alert output when any of the thresholds is exceeded. If you want to use this feature, call this method at the start of your sketch:
+You can also set the MCP9804 to activate its Alert output when any of the thresholds is exceeded, using this method.
 
 ```
-void configureAlert();
+void configureAlert(boolean action, uint16_t settings = ALERT_ALL | ALERT_LOW | ALERT_INTERRUPT);
 ```
+
+If you want to use this feature, call `configureAlert(ENABLE)` at the start of your sketch. This will enable the alert output for all thresholds (Upper, Lower and Critical) with the output being active low and operating in interrupt mode, as described in sections 5.1.1 and 5.2.3 of the MCP9804 datasheet). Note: for backwards compatibility with version 0.1 beta, calling `configureAlert()` with no arguments has the same effect as calling `configureAlert(ENABLE)`.  However, its use is deprecated.
+ 
+The alert output parameters can be set by passing a second argument to `configureAlert()`.  Constants have been defined for both possible states of each of the three parameters:
+
+```
+#define ALERT_ALL        0x00      // Alert on all three thresholds
+#define ALERT_TCRIT      0x04      // Alert only on Critical threshold
+#define ALERT_LOW        0x00      // Alert output is active low
+#define ALERT_HIGH       0x02      // Alert output is active high
+#define ALERT_COMPARATOR 0x00      // Alert output operates in comparator mode
+#define ALERT_INTERRUPT  0x01      // Alert output operates in interrupt mode
+```
+ 
+Bitwise OR the required settings and pass them as the second argument.  For example:
+
+```
+configureAlert(ENABLE, ALERT_ALL | ALERT_HIGH | ALERT_INTERRUPT);
+```
+
+Note: certain combinations of the three parameters are invalid.  The `configureAlert()` method does not check for these. See section 5.2.3 of the datasheet.
 
 After your sketch detects the Alert output and reads the status flags and temperature, it must clear the flag so that further alerts can be detected by calling this method:
  
@@ -244,6 +265,13 @@ if ((sensor.getTAInteger() < sensor.getTLOWER()) || (sensor.getTAInteger() > sen
 }
 ```
 
+If you want to disable the alert output, call this method:
+
+```
+configureAlert(DISABLE);
+```
+
+
 ##### Other functions
 
 The library provides three functions to read the device details as described in sections 5.1.4 and 5.1.5 of the MCP9804 datasheet.
@@ -253,3 +281,4 @@ uint16_t getManufacturerID();
 uint8_t getDeviceID();
 uint8_t getDeviceRevision();
 ```
+

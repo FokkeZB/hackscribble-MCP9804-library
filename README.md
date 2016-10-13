@@ -5,7 +5,7 @@ Hackscribble_MCP9804 Library
 
   
 Created on 13 November 2014 by Ray Benitez 
-Last modified on --- by ---		
+Last modified on ?? October 2016 by Ray Benitez
   
 This software is licensed by Ray Benitez under the MIT License.
 	
@@ -15,6 +15,10 @@ git@hackscribble.com | http://www.hackscribble.com | http://www.twitter.com/hack
  
 
 ### Change history
+
+#### 0.2 (?? October 2016)
+
+Added a variant of `configureAlert()` that allows the alert output to be disabled as well as enabled, and the alert output parameters to be set.
 
 #### 0.1 BETA (13 November 2014)
 
