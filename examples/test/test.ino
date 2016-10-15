@@ -8,8 +8,8 @@
 
 	Created on 13 November 2014
 	By Ray Benitez
-	Last modified on ---
-	By ---
+	Last modified on 17 October 2016
+	By Ray Benitez
 	Change history in "README.md"
 		
 	This software is licensed by Ray Benitez under the MIT License.
@@ -100,7 +100,7 @@ void setup()
   Serial.println(sensor.getTCRIT());
   Serial.println();
 
-  sensor.configureAlert();
+  sensor.configureAlert(ENABLE);
 
   // At startup, alert pin is not asserted if Ta is already out of range, so handle this special case
   if ((sensor.getTAInteger() < sensor.getTLOWER()) || (sensor.getTAInteger() > sensor.getTUPPER()))

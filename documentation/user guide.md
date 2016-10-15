@@ -6,7 +6,7 @@ Hackscribble_MCP9804 Library User Guide
 <br>
 
 Created on 13 November 2014 by Ray Benitez
-Last modified on ?? October 2016 by Ray Benitez
+Last modified on 17 October 2016 by Ray Benitez
 Change history in **README.md**
 
 This software is licensed by Ray Benitez under the MIT License.
@@ -228,7 +228,7 @@ You can also set the MCP9804 to activate its Alert output when any of the thresh
 void configureAlert(boolean action, uint16_t settings = ALERT_ALL | ALERT_LOW | ALERT_INTERRUPT);
 ```
 
-If you want to use this feature, call `configureAlert(ENABLE)` at the start of your sketch. This will enable the alert output for all thresholds (Upper, Lower and Critical) with the output being active low and operating in interrupt mode, as described in sections 5.1.1 and 5.2.3 of the MCP9804 datasheet). Note: for backwards compatibility with version 0.1 beta, calling `configureAlert()` with no arguments has the same effect as calling `configureAlert(ENABLE)`.  However, its use is deprecated.
+If you want to use this feature, call `configureAlert(ENABLE)` at the start of your sketch. This will enable the alert output for all thresholds (Upper, Lower and Critical) with the output being active low and operating in interrupt mode, as described in sections 5.1.1 and 5.2.3 of the MCP9804 datasheet. Note: for backwards compatibility with version 0.1 beta, calling `configureAlert()` with no arguments has the same effect as calling `configureAlert(ENABLE)`.  However, its use is deprecated.
  
 The alert output parameters can be set by passing a second argument to `configureAlert()`.  Constants have been defined for both possible states of each of the three parameters:
 
@@ -247,7 +247,7 @@ Bitwise OR the required settings and pass them as the second argument.  For exam
 configureAlert(ENABLE, ALERT_ALL | ALERT_HIGH | ALERT_INTERRUPT);
 ```
 
-Note: certain combinations of the three parameters are invalid.  The `configureAlert()` method does not check for these. See section 5.2.3 of the datasheet.
+Note: certain combinations of the three parameters are invalid (see section 5.2.3 of the datasheet).
 
 After your sketch detects the Alert output and reads the status flags and temperature, it must clear the flag so that further alerts can be detected by calling this method:
  

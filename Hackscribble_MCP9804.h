@@ -9,7 +9,7 @@
 
 	Created on 13 November 2014
 	By Ray Benitez
-	Last modified on ??? October 2016
+	Last modified on 17 October 2016
 	By Ray Benitez
 	Change history in "README.md"
 
@@ -57,6 +57,8 @@ enum MCP9804_Register
 	REG_RESOLUTION = 		0x08,	//
 	numberOfRegisters
 };
+
+// Constants for use with configureAlert() method
 
 #define DISABLE          false
 #define ENABLE           true
